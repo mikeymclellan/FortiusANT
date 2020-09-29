@@ -232,10 +232,9 @@ DeviceTypeID_FE         = DeviceTypeID_fitness_equipment
 DeviceTypeID_HRM        = DeviceTypeID_heart_rate
 DeviceTypeID_PWR        = DeviceTypeID_bike_power
 DeviceTypeID_SCS        = DeviceTypeID_bike_speed_cadence
-DeviceTypeID_GNS        = 0xd3          # Tacx i-Genius
-DeviceTypeID_VTX        = 61            # Tacx i-Vortex
+DeviceTypeID_VTX        = 0x53            # Tacx i-Vortex
                                         # 0x3d  according TotalReverse
-DeviceTypeID_VHU        = 0x3e          # Thanks again to TotalReverse
+DeviceTypeID_VHU        = 0x55          # Thanks again to TotalReverse
 # https://github.com/WouterJD/FortiusANT/issues/46#issuecomment-616838329
 
 TransmissionType_IC     = 0x01          # 5.2.3.1   Transmission Type
@@ -766,7 +765,7 @@ class clsAntDongle():
         if debug.on(debug.Data1): logfile.Write ("SlaveVTX_ChannelConfig()")
         messages=[
             msg42_AssignChannel         (channel_VTX_s, ChannelType_BidirectionalReceive, NetworkNumber=0x01),
-            msg51_ChannelID             (channel_VTX_s, DeviceNumber, DeviceTypeID_GNS, TransmissionType_IC),
+            msg51_ChannelID             (channel_VTX_s, DeviceNumber, DeviceTypeID_VTX, TransmissionType_IC),
             msg45_ChannelRfFrequency    (channel_VTX_s, RfFrequency_2460Mhz),
             msg43_ChannelPeriod         (channel_VTX_s, ChannelPeriod=4096),
             msg60_ChannelTransmitPower  (channel_VTX_s, TransmitPower_0dBm),
